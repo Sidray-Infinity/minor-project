@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Images</folder>
+	<filename>img-113.jpg</filename>
+	<path>D:\anshika1\Images\img-113.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>272</width>
+		<height>575</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>license_plate</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>32</xmin>
+			<ymin>416</ymin>
+			<xmax>130</xmax>
+			<ymax>440</ymax>
+		</bndbox>
+	</object>
+</annotation>
