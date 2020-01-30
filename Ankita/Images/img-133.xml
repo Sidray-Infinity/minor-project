@@ -1,0 +1,26 @@
+<annotation>
+	<folder>Images</folder>
+	<filename>img-133.jpg</filename>
+	<path>D:\Ankita\Images\img-133.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>272</width>
+		<height>363</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>license_plate</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>147</xmin>
+			<ymin>239</ymin>
+			<xmax>217</xmax>
+			<ymax>257</ymax>
+		</bndbox>
+	</object>
+</annotation>
