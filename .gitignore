@@ -2,3 +2,6 @@ Raw-Data
 models/
 Data/Train/
 Data/Test/
+Inference-graph/
+Model/
+utils/

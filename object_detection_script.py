@@ -18,14 +18,14 @@ sys.path.append("..")
 
 # MODELS: 17346 19526 21701 23875 26046 28220
 
-MODEL_NAME = 'ssd-tpu-model/inference-graph'
-PATH_TO_TEST_IMAGES_DIR = "test-images"
+MODEL_NAME = 'Inference-graph'
+PATH_TO_TEST_IMAGES_DIR = "Test-images"
 
 PATH_TO_CKPT = MODEL_NAME + '/frozen_inference_graph.pb'
 
-PATH_TO_LABELS = os.path.join('training', 'object-detection-100imgs.pbtxt')
+PATH_TO_LABELS = os.path.join('Training', 'object-detection.pbtxt')
 
-NUM_CLASSES = 4
+NUM_CLASSES = 1
 
 
 detection_graph = tf.Graph()
@@ -73,7 +73,7 @@ def detect_objects(image_np):
                 np.squeeze(scores),
                 category_index,
                 use_normalized_coordinates=True,
-                line_thickness=8)
+                line_thickness=4)
 
             return image_np
 
@@ -85,7 +85,8 @@ if __name__ == "__main__":
             for f in os.listdir(PATH_TO_TEST_IMAGES_DIR):
                 image_path = os.path.join(PATH_TO_TEST_IMAGES_DIR, f)
                 image = Image.open(image_path)
-
+                b, g, r = image.split()
+                image = Image.merge("RGB", (r, g, b))
                 image_np = load_image_into_numpy_array(image)
 
                 start = time.time()
@@ -117,11 +118,16 @@ if __name__ == "__main__":
                     np.squeeze(scores),
                     category_index,
                     use_normalized_coordinates=True,
-                    line_thickness=8)
+                    line_thickness=3)
+
+                image = Image.fromarray(image_np)
+                b, g, r = image.split()
+                image = Image.merge("RGB", (r, g, b))
+                image.save(os.path.join("Output", f))
 
                 cv2.imshow('object detection',
                            cv2.resize(image_np, (800, 600)))
-                # cv2.waitKey(0)
+                cv2.waitKey(0)
                 if cv2.waitKey(25) & 0xFF == ord('q'):
                     cv2.destroyAllWindows()
                     break
